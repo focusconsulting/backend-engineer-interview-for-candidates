@@ -36,7 +36,7 @@ look at the provided `/v1/status` endpoint.
 
 ### Setup Instructions
 
-1. Install python@3.9.7
+1. Install python@3.9.7.  This can be managed with [asdf](https://github.com/asdf-vm/asdf) and [asdf-python](https://github.com/danhper/asdf-python)
 2. Install [poetry](https://python-poetry.org/docs/#osx--linux--bashonwindows-install-instructions)
 3. Run `poetry config virtualenvs.in-project true`
 4. Run `poetry install --no-root`.  Installing the dependencies will take a few minutes.

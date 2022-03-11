@@ -26,6 +26,10 @@ def db_session() -> Generator[Session, None, None]:
     yield session
 
 
+def get_request():
+    return connexion.request
+
+
 @dataclass
 class StartEndDates:
     start_date: date
@@ -104,7 +108,7 @@ def patch_employee(id):
                 flask.jsonify({"message": "No such employee"}), 404
             )
 
-        request_body = PatchEmployeeRequest.parse_obj(connexion.request.json)
+        request_body = PatchEmployeeRequest.parse_obj(get_request().json)
 
         if request_body.last_name is not None and request_body.last_name == "":
             return flask.make_response(
