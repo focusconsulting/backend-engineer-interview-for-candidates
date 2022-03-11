@@ -1,0 +1,118 @@
+openapi: 3.0.3
+info:
+  title: Paid Leave API
+  description: An API for managing Paid Family Leave
+  version: "2022-03-11"
+
+servers:
+  - url: /v1
+    description: Development server
+
+
+paths:
+  /status:
+    get:
+      tags:
+        - Example Endpoints
+      summary: Get the API status
+      operationId: backend_engineer_interview.handlers.status
+      responses:
+        "200":
+          description: API is up and running
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Message!
+
+  /employee/{id}:
+    get:
+      tags:
+        - Test Endpoints
+      summary: Fetch a single employee
+      operationId: backend_engineer_interview.handlers.get_employee
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          description: the employee id
+          required: true
+      responses:
+        "200":
+          description: Found the employee
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  first_name:
+                    type: string
+                    example: George
+                  last_name:
+                    type: string
+                    example: Harrison
+                  date_of_birth:
+                    type: string
+                    format: date
+                    example: '1943-02-25'
+        "404":
+          description: No such employee
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+    patch:
+      tags:
+        - Test Endpoints
+      summary: Fetch a single employee
+      operationId: backend_engineer_interview.handlers.patch_employee
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          description: the employee id
+          required: true
+      responses:
+        "204":
+          description: Successfully updated employee
+        "404":
+          description: Employee does not exist
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "400":
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+
+      
