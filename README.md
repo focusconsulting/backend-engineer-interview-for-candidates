@@ -6,6 +6,7 @@ All tests are located in `test_backend_engineer_interview.py`
 
 ## Structure
 
+```
 backend-engineer-interview/
   backend_engineer_interview/
     app.py
@@ -15,6 +16,7 @@ backend-engineer-interview/
     test_backend_engineer_interview.py - Test cases for the exercises
   app.db - initialized sqlite db
   openapi.yaml - Open API specifications
+```
 
 ## In person exercise
 
