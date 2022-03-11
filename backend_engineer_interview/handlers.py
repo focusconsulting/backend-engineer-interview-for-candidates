@@ -41,7 +41,7 @@ Instructions:
 
 
 def split_start_end_dates(start_date: date, end_date: date, split_date: date):
-    # TODO: remove answer
+    # ANSWER
     if start_date > split_date and end_date > split_date:
         return (None, StartEndDates(start_date, end_date))
     elif start_date <= split_date and end_date <= split_date:
@@ -72,6 +72,7 @@ class EmployeeResponse(PydanticBaseModel):
 
 
 def get_employee(id):
+    # ANSWER
     with db_session() as session:
 
         employee = session.query(Employee).filter(Employee.id == id).one_or_none()
@@ -86,12 +87,14 @@ def get_employee(id):
         )
 
 
+# Answer
 class PatchEmployeeRequest(PydanticBaseModel):
     first_name: Optional[str]
     last_name: Optional[str]
 
 
 def patch_employee(id):
+    # Answer
     with db_session() as session:
         employee: Employee = (
             session.query(Employee).filter(Employee.id == id).one_or_none()
